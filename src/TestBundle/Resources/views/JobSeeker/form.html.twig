@@ -1,0 +1,13 @@
+{% form_theme form '::Form/theme.html.twig' %}
+
+<p>{{ 'test_form.new'|trans }}</p>
+
+<div id="test_form" style="width: 585px;">
+
+ <form method="POST" action="{{ path('showJobSeeker', { id: app.request.get('id') }) }}" class="ui form small" novalidate="novalidate">
+
+ {{ form_widget(form) }}
+
+ </form>
+
+</div>

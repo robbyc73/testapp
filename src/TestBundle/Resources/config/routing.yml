@@ -1,0 +1,18 @@
+test_homepage:
+    path:     /
+    defaults: { _controller: TestBundle:Default:index }
+
+hello:
+    path:     /hello/{name}/{surname}
+    defaults: { _controller: TestBundle:Name:index, name: 'anonymous', surname: 'anonymous' }
+
+showJobSeeker:
+    path:     /showJobSeeker
+    defaults: { _controller: TestBundle:JobSeeker:showJobSeeker }
+
+api:
+    resource: "@TestBundle/Controller/JobSeekerApiController.php"
+    prefix: /api
+    type: rest
+    options: { expose: true }
+

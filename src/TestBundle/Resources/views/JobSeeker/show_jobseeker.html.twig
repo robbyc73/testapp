@@ -1,0 +1,41 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}showJobSeeker{% endblock %}
+
+{% block body %}
+  <table class="ui blue table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>DOB</th>
+            <th>Actions</th>
+  
+        </tr>
+        </thead>
+        <tbody>
+        {% for jobseeker in jobseekers %}
+            <tr data-jobseeker-id="{{ jobseeker.id }}">
+                <td>{{ jobseeker.name }}</td>
+                <td>{{ jobseeker.surname }}</td>
+                <td>
+                    {{ jobseeker.dOB is empty ? "" : jobseeker.dOB|date('Y-m-d') }}
+                </td>
+<td>
+ <a href="#" class="action" data-action="edit"><i class="edit icon"></i></a>
+ <a href="#" class="action" data-action="delete"><i class="remove icon"></i></a>
+ </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4" class="center aligned">
+                    <h2>There are no job seekers at the moment!</h2>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+<div id="test_form">
+ {% include 'TestBundle:JobSeeker:form.html.twig' %}
+ </div>
+{% endblock %}
